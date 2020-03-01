@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="Smoke">
+    <test name="Suites" preserve-order="true">
+        <classes>
+            <class name="testing.Tests"/>
+        </classes>
+
+    </test>
+
+
+</suite>
