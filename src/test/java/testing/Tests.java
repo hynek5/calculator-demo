@@ -14,23 +14,23 @@ public class Tests {
 
     @Test
     public void testOne() throws Exception {
+        calculator = new Calculator();
         calculator.readData(tests+"test1.txt");
         Assert.assertEquals(calculator.calculate(),18d);
-        calculator.delete();
     }
 
     @Test
     public void testTwo() throws Exception {
+        calculator = new Calculator();
         calculator.readData(tests+"test2.txt");
         Assert.assertEquals(calculator.calculate(),45d);
-        calculator.delete();
     }
 
     @Test
     public void testThree() throws Exception {
+        calculator = new Calculator();
         calculator.readData(tests+"test3.txt");
         Assert.assertEquals(calculator.calculate(),1d);
-        calculator.delete();
     }
 
 }
