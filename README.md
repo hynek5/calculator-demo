@@ -4,5 +4,5 @@
 
 Java requirements:
 
-- java version "1.8.0_192"
+- java version "11.0.8"
 
