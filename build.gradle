@@ -45,14 +45,6 @@ task createJar(type: Jar) {
     with jar
 }
 
-task testCalc(type: Test) {
-    useTestNG() {
-        useDefaultListeners = true
-        outputDirectory = file("$projectDir/testngOutput")
-        suites 'src/test/java/testSuite.xml'
-    }
-}
-
 task uTests(type: Test) {
     useTestNG() {
         useDefaultListeners = true
