@@ -45,7 +45,7 @@ task createJar(type: Jar) {
     with jar
 }
 
-task uTests(type: Test) {
+task Test(type: Test) {
     useTestNG() {
         useDefaultListeners = true
         outputDirectory = file("$projectDir/testngOutput")
