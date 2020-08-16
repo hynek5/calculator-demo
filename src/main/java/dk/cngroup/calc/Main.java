@@ -1,17 +1,12 @@
 package dk.cngroup.calc;
 
-import dk.cngroup.Data.Operators;
-import dk.cngroup.exception.DivisionByZeroException;
-import dk.cngroup.exception.NotNumberException;
-import dk.cngroup.exception.OperatorException;
+import static dk.cngroup.logging.BaseLogger.logger;
 
 public class Main {
 
     static String pathToFile;
 
     public static void main(String[] args) {
-
-
 
         try {
             if (args.length == 0) {
@@ -23,15 +18,10 @@ public class Main {
             calculator.readData(pathToFile);
             System.out.print("Result is " + calculator.calculate());
         } catch (Exception e) {
-            if (e instanceof DivisionByZeroException ||
-                    e instanceof OperatorException ||
-                    e instanceof NotNumberException
-            )
-                System.out.print(e.getMessage());
-            else {
-                e.printStackTrace();
+                logger.error("Fail during the computation:",e);
+                System.out.println("Fail, unexpected error during the processing.");
+                System.exit(-1);
             }
         }
 
-        }
 }

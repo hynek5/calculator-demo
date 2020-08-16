@@ -2,6 +2,7 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'java'
 group '1'
 version '1.0'
 
@@ -16,12 +17,24 @@ dependencies {
     compile group: 'org.testng', name: 'testng', version: '7.0.0'
     // https://mvnrepository.com/artifact/com.beust/jcommander
     compile group: 'com.beust', name: 'jcommander', version: '1.78'
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-core
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+// https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-core
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+
 }
 
 sourceSets {
     main.java.srcDir "dk.cngroup"
     test.java.srcDir "testing"
 }
+
+project.file('logs').mkdirs()
 
 task createJar(type: Jar) {
     manifest {
@@ -37,5 +50,13 @@ task testCalc(type: Test) {
         useDefaultListeners = true
         outputDirectory = file("$projectDir/testngOutput")
         suites 'src/test/java/testSuite.xml'
+    }
+}
+
+task uTests(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        outputDirectory = file("$projectDir/testngOutput")
+        suites 'src/test/java/uTests.xml'
     }
 }

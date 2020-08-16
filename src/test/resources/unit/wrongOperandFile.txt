@@ -1,0 +1,3 @@
+add 2
+multiply xx
+apply 4
