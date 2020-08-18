@@ -3,11 +3,13 @@ package dk.cngroup.data;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import static dk.cngroup.data.Operator.*;
+
 public class Operators  implements  Validateable{
 
-     public enum Operator {
-        ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION
-    }
+    // public enum Operator {
+    //    ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION
+    //}
 
     private LinkedList<Operator> list;
     private Iterator<Operator> listItr;
@@ -33,19 +35,19 @@ public class Operators  implements  Validateable{
     public boolean isValid(String operCandidate) {
         switch (operCandidate.toLowerCase()) {
             case "addition": case "add": {
-                list.add(Operator.ADDITION);
+                list.add(ADDITION);
                 return true;
             }
             case "subtraction": case "subtract": {
-                list.add(Operator.SUBTRACTION);
+                list.add(SUBTRACTION);
                 return true;
             }
             case "multiply": case "multiplication": {
-                list.add(Operator.MULTIPLICATION);
+                list.add(MULTIPLICATION);
                 return true;
             }
             case "divide": case "division": {
-                list.add(Operator.DIVISION);
+                list.add(DIVISION);
                 return true;
             }
             case "apply": {

@@ -1,27 +1,23 @@
 package dk.cngroup.calc;
 
-import dk.cngroup.data.Operators;
 import dk.cngroup.exception.DivisionByZeroException;
-import dk.cngroup.exception.OperatorException;
+import dk.cngroup.data.Operator;
 
 public class Calculator {
 
     InputReader reader;
 
-    public Calculator() throws Exception{
-        }
-
-    public void readData(String pathToFile) throws Exception {
-        reader = new InputReader(pathToFile);
+    public Calculator(String pathToInputFile) throws Exception{
+        reader = new InputReader(pathToInputFile);
         reader.read();
-    }
+        }
 
         public double calculate() throws RuntimeException {
 
         Double result = reader.getOperands().getList().getLast();
 
         while (reader.getOperators().getListItr().hasNext()) {
-            Operators.Operator currentOperator = reader.getOperators().getListItr().next();
+            Operator currentOperator = reader.getOperators().getListItr().next();
             Double currentOperand = reader.getOperands().getListItr().next();
             switch (currentOperator) {
                 case ADDITION:

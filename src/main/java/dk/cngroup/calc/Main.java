@@ -14,8 +14,7 @@ public class Main {
                 System.exit(1);
             }
             pathToFile = args[0];
-            Calculator calculator = new Calculator();
-            calculator.readData(pathToFile);
+            Calculator calculator = new Calculator(pathToFile);
             System.out.print("Result is " + calculator.calculate());
         } catch (Exception e) {
                 logger.error("Fail during the computation:",e);
